@@ -58,7 +58,6 @@ int main(int argc, char** argv)
     fseek(tmpl, 0, SEEK_SET);
     buf = calloc(len + 1, sizeof(char));
     fread(buf, len, 1, tmpl);
-    printf("Everything's OK\n");
     Span span = mkspan(buf, len);
     exec_template(argv[1], &span);
     fclose(tmpl);

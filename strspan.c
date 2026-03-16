@@ -19,14 +19,10 @@ void brkspan(Span* span)
 void printspan(Span span)
 {
     printf("%.*s", (int)span.len, span.string);
-    // return write(STDOUT_FILENO, (void*)span.string, span.len);
 }
 void printspanln(Span span)
 {
     printf("%.*s\n", (int)span.len, span.string);
-    // ssize_t n = write(STDOUT_FILENO, (void*)span.string, span.len);
-    // n += write(STDOUT_FILENO, (void*)"\n", 1);
-    // return n;
 }
 // Delimiter-exclusive tokens
 Span chopspan_left_mut(Span* span, char delim, bool keep_delim)
@@ -122,6 +118,5 @@ Span concatspan(Span span, Span tail)
     result.string[result.len] = '\0';
     strncat(result.string, tail.string, tail.len);
     result.len += tail.len;
-    printf("concatspan: strncatted\n");
     return result;
 }
